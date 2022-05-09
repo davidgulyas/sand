@@ -1,6 +1,3 @@
-require './sand/sandbox.rb'
-require './sand/point.rb'
-
 module Sand
   class Util
 

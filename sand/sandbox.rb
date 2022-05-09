@@ -1,5 +1,3 @@
-require './sand/cell.rb'
-
 # When giving coordinates, the first is now many lines down, and the next is how many to the right.
 # 0,0 is top left.
 
@@ -31,20 +29,20 @@ module Sand
       end
     end
 
-    # returns the least and greatest amounts of sand in the box
+    # returns the min and max amounts of sand in the box
     def get_extremes
-      least = cells[0][0].height
-      greatest = cells[0][0].height
+      min = cells[0][0].height
+      max = cells[0][0].height
       self.each do |cell|
-        if cell.height < least
-          least = cell.height
+        if cell.height < min
+          min = cell.height
         end
 
-        if cell.height > greatest
-          greatest = cell.height
+        if cell.height > max
+          max = cell.height
         end
       end
-      return least, greatest
+      return min, max
     end
 
     def print_box

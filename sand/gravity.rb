@@ -1,16 +1,9 @@
-require './sand/util.rb'
-
 module Sand
   class Gravity
     
-
-
     # maxSlope is the required difference between two neighbours sand heights
     # for sand to flow from the higher to the lower cell
     def self.apply(sandbox, maxSlope)
-
-
-
 
 
     end
@@ -22,7 +15,6 @@ module Sand
       box.each do |cell|
         #get neighbour cells of cell. If any are higher add cell to list
       end
-
 
     end
 
