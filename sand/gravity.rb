@@ -1,4 +1,4 @@
-Dir["./*.rb"].each {|file| require file }
+require './sand/util.rb'
 
 module Sand
   class Gravity
@@ -20,8 +20,8 @@ module Sand
       highCells = []
 
       box.each do |cell|
-        #get enghbour cells of cell. If any are higher add cell to list
-
+        #get neighbour cells of cell. If any are higher add cell to list
+      end
 
 
     end

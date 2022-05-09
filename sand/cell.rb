@@ -1,5 +1,3 @@
-Dir["./*.rb"].each {|file| require file }
-
 module Sand
   class Cell
 

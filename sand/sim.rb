@@ -1,1 +1,1 @@
-Dir["./*.rb"].each {|file| require file }
+require './sand/gravity.rb'
