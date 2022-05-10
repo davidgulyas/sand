@@ -3,14 +3,14 @@ require 'chunky_png'
 module Draw
   class CreatePng
 
-    def create_from_sandbox(box, filename = 'filename.png')
+    def self.create_png_from_sandbox(box, filename = 'filename.png')
       png = ChunkyPNG::Image.new(box.width, box.height, ChunkyPNG::Color::TRANSPARENT)
 
       min_sand, max_sand = box.get_extremes
 
-      (0..box.height).each do |y|
-        (0..box.width).each do |x|
-          scaled_color = scale_value(min_sand, max_sand, box.cells[y,x].height)
+      (0...box.height).each do |y|
+        (0...box.width).each do |x|
+          scaled_color = scale_value(min_sand, max_sand, box.cells[y][x].height)
           png[x,y] = ChunkyPNG::Color.rgb(scaled_color, scaled_color, scaled_color)
 
         end
@@ -20,7 +20,7 @@ module Draw
 
     # Takes a range and a value within that range and translated it to a proportional value
     # in the grey scale range of 0..255
-    def scale_value(from_min, from_max, value)
+    def self.scale_value(from_min, from_max, value)
       to_min = 0
       to_max = 255
 
