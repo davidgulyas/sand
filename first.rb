@@ -2,8 +2,10 @@
 # require 'first.rb'
 # This will read all the files into the interpreter, letting you access them in irb.
 
-require './draw/create_png.rb'
+
 require './draw/ex.rb'
+require './draw/read_png.rb'
+require './draw/write_png.rb'
 
 require './sand/cell.rb'
 require './sand/gravity.rb'

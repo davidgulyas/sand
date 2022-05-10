@@ -14,11 +14,22 @@ module Sand
       @width = width
       @height = height
 
+      # cells can be accessed with @cells[y][x]. y is how far down from the top the cell is.
+      # x is how far right from the left side the cell is.
+      # because arrays are 0 indexed, @cells[height][width] will return nil since it's
+      # beyond the bounds of the arrray.
       @cells = Array.new(height) {Array.new(width){Sand::Cell.new(initialHeight, -1)}}
+
+      (0...@height).each do |y|
+        (0...@width).each do |x|
+          p = Sand::Point.new(x,y)
+          cell_at(p).location = p
+        end
+      end
     end
 
     def contains_point?(p)
-      return p.x >= 0 && p.x <= width && p.y >= 0 && p.y < height
+      return p.x >= 0 && p.x < width && p.y >= 0 && p.y < height
     end
 
     def each
@@ -56,5 +67,30 @@ module Sand
       return
     end
 
+    def cell_at(p)
+      @cells[p.y][p.x]
+    end
+
+    def get_neighbour_cells(cell)
+      cell_location = cell.location
+      neighbour_points = surrounding_points(cell_location)
+
+      neighbour_cells = []
+      neighbour_points.each do |p|
+        if(contains_point?(p))
+          neighbour_cells.push(cell_at(p))
+        end
+      end
+      return neighbour_cells
+    end
+
+    def surrounding_points(p)
+      return [
+        Sand::Point.new(p.x, p.y-1),
+        Sand::Point.new(p.x, p.y+1),
+        Sand::Point.new(p.x-1, p.y),
+        Sand::Point.new(p.x+1, p.y)
+      ]
+    end
   end
 end

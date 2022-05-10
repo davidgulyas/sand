@@ -1,7 +1,7 @@
 module Sand
   class Cell
 
-    attr_accessor :limit, :height
+    attr_accessor :limit, :height, :location
 
     # height is how much sand is in the cell
     # limit is the maximum amount of sand that will remain after the sandbox is in equilibrium
@@ -17,6 +17,10 @@ module Sand
       
       @height = height
       @limit = limit
+    end
+
+    def full?
+      return (limit >= 0) && (height >= limit)
     end
 
   end

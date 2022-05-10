@@ -1,7 +1,7 @@
 require 'chunky_png'
 
 module Draw
-  class CreatePng
+  class WritePng
 
     def self.create_png_from_sandbox(box, filename = 'filename.png')
       png = ChunkyPNG::Image.new(box.width, box.height, ChunkyPNG::Color::TRANSPARENT)
