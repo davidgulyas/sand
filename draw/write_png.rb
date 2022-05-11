@@ -16,6 +16,7 @@ module Draw
         end
       end
       png.save(filename, :interlace => true)
+      return
     end
 
     # Takes a range and a value within that range and translated it to a proportional value

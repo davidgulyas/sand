@@ -33,8 +33,8 @@ module Sand
     end
 
     def apply_to_cell(sandbox, cell, high_cells)
-      sandbox.get
-
+      neighbours = sandbox.get_neighbour_cells(cell)
+      neighbours.delete_if {|n| }
 
 
 
@@ -42,7 +42,7 @@ module Sand
     end
 
     # This pops an element off a set. Ruby doesn't let you take an element from a set
-    # normally because Rubuy is dumb.
+    # normally because Ruby is dumb.
     def self.set_pop(set)
       element = nil
       set.each do |e|
